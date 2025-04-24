@@ -1,5 +1,17 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('Bot do PC Solidário está rodando!');
+});
+
+app.listen(port, () => {
+  console.log(`Servidor ouvindo na porta ${port}`);
+});
+
 
 const client = new Client({
     authStrategy: new LocalAuth(),
